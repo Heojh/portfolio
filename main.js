@@ -13,8 +13,8 @@ document.addEventListener('scroll', () => {
 
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
-navbarMenu.addEventListener('click', (event) => {
-    const target = event.target;
+navbarMenu.addEventListener('click', (e) => {
+    const target = e.target;
     const link = target.dataset.link;
 
     if(link == null) {
@@ -51,6 +51,24 @@ arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
 });
 
+// Project filtering
+const workBtnContainer = document.querySelector('.work__categories');
+const projects = document.querySelectorAll('.project');
+workBtnContainer.addEventListener('click', (e) => {
+    const target = e.target
+    const filter = target.dataset.filter || target.parentNode.dataset.filter;
+
+    if(filter == null) {
+        return;
+    }
+    projects.forEach((project) => {
+        if(filter === '*' || filter === project.dataset.type) {
+            project.classList.remove('invisible');
+        } else {
+            project.classList.add('invisible');
+        }
+    });
+});
 
 function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);
