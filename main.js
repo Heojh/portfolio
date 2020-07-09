@@ -51,8 +51,9 @@ arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
 });
 
-// Project filtering
+// Project filtering & animation
 const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
 workBtnContainer.addEventListener('click', (e) => {
     const target = e.target
@@ -61,13 +62,17 @@ workBtnContainer.addEventListener('click', (e) => {
     if(filter == null) {
         return;
     }
-    projects.forEach((project) => {
-        if(filter === '*' || filter === project.dataset.type) {
-            project.classList.remove('invisible');
-        } else {
-            project.classList.add('invisible');
-        }
-    });
+    projectContainer.classList.add('animation-out');
+    setTimeout(() => {
+        projects.forEach((project) => {
+            if(filter === '*' || filter === project.dataset.type) {
+                project.classList.remove('invisible');
+            } else {
+                project.classList.add('invisible');
+            }
+        });
+        projectContainer.classList.remove('animation-out');
+    }, 300)
 });
 
 function scrollIntoView(selector) {
