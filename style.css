@@ -113,6 +113,8 @@ p {
 
 .navbar__menu {
     display: flex;
+    margin-top: 10px;
+    font-size: var(--font-regular);
 }
 
 .navbar__logo {
@@ -368,6 +370,7 @@ p {
 .project:hover .project__description {
     opacity: 0.8;
     transform: translateY(0);
+    cursor: pointer;
 }
 
 .project__description h3 {
@@ -384,6 +387,10 @@ p {
     transform: translateX(-50%);
     margin-top: 8px;
     background-color: var(--color-dark-white);
+}
+
+.project__description span {
+    color: var(--color-white);
 }
 
 /* Contact*/
@@ -431,6 +438,14 @@ p {
 .arrow-up.visible {
     opacity: 1;
     pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal*/
+.modal-dialog {
+    width: 80%;
 }
 
 @media screen and (max-width: 768px) {
@@ -445,7 +460,7 @@ p {
 
     .navbar__toggle-btn {
         display: block;
-        top: 18px;
+        top: 16px;
         right: 16px;
         font-size: var(--font-medium);
     }
