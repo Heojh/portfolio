@@ -521,4 +521,8 @@ p {
         right: 16px;
         bottom: 16px;
     }
+
+    .modal-dialog {
+        margin-left: 11%;
+    }
 }
