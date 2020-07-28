@@ -523,6 +523,8 @@ p {
     }
 
     .modal-dialog {
+        position: fixed;
+        top: 30%;
         margin-left: 11%;
     }
 }
